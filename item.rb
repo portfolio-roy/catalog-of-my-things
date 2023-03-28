@@ -17,6 +17,10 @@ class Item
     (Time.now.year - @publish_date.year) > 10
   end
 
+  def add_genre(genre)
+    @genre = genre 
+  end
+
   # Asif: add your code here
   # define Methode move_to_archive
   # logic: @archived = can_be_archived?
