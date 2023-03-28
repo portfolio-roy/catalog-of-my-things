@@ -18,7 +18,7 @@ class Item
   end
 
   def add_genre(genre)
-    @genre = genre 
+    @genre = genre
   end
 
   # Asif: add your code here
