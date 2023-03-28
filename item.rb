@@ -20,7 +20,7 @@ class Item
     (Time.now.year - @publish_date.year) > 10
   end
 
-  # Asif: add your code here
-  # define Methode move_to_archive
-  # logic: @archived = can_be_archived?
+  def move_to_archive
+    @archived = can_be_archived?
+end
 end
