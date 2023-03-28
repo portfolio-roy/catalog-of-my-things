@@ -3,14 +3,14 @@ require 'date'
 class Item
   attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
 
-  def initialize(id, genre, author, source, label, publish_date, archived)
-    @id = id
-    @genre = genre
-    @author = author
-    @source = source
-    @label = label
-    @publish_date = publish_date
-    @archived = archived
+  def initialize(dictionary)
+    @id = dictionary.id || Time.now.to_i
+    @genre = dictionary.genre
+    @author = dictionary.author
+    @source = dictionary.source
+    @label = dictionary.label
+    @publish_date = dictionary.publish_date
+    @archived = dictionary.archived
   end
 
   def can_be_archived?
