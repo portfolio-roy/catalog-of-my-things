@@ -4,7 +4,7 @@ class Label < Item
   attr_accessor :title, :color
   attr_reader :id, :items
 
-  def initialize(dictionary, title, color)
+  def initialize(title, color, dictionary = {}, id: Random.rand(1..1000))
     super(dictionary)
     @id = dictionary['id']
     @title = title
