@@ -12,4 +12,12 @@ class Genre
     item.genre = self
     @items << item unless @items.include?(item)
   end
+
+  def to_json(*_args)
+    {
+      id: @id,
+      name: @name,
+      items: @items
+    }
+  end
 end
