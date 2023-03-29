@@ -4,8 +4,8 @@ class Book < Item
   attr_accessor :publisher, :cover_state
   attr_reader :id
 
-  def initialize(publisher, cover_state)
-    super(id = Random.rand(1..100))
+  def initialize(dictionary, publisher, cover_state, id: Random.rand(1..1000))
+    super(dictionary)
     @id = id
     @publisher = publisher
     @cover_state = cover_state
