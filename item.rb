@@ -18,6 +18,10 @@ class Item
     @archived = hash['archived']
   end
 
+  def add_genre(genre)
+    @genre = genre
+  end
+
   def can_be_archived?
     (Time.now.year - @publish_date.year) > 10
   end
