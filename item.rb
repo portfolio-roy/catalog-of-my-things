@@ -9,12 +9,12 @@ class Item
   def initialize(hash)
     # create a random id using time
     @id = hash['id'] || Time.now.to_i
-    @genre = hash['genre'] || nil
-    @author = hash['author'] || nil
-    @source = hash['source'] || nil
-    @label = hash['label'] || nil
-    @publish_date = hash['publish_date'] || nil
-    @archived = hash['archived'] || false
+    @genre = hash['genre']
+    @author = hash['author']
+    @source = hash['source']
+    @label = hash['label']
+    @publish_date = hash['publish_date']
+    @archived = hash['archived']
   end
 
   def add_genre(genre)
