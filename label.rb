@@ -6,7 +6,7 @@ class Label < Item
 
   def initialize(title, color, dictionary = {}, id: Random.rand(1..1000))
     super(dictionary)
-    @id = dictionary['id']
+    @id = id
     @title = title
     @color = color
     @items = []
