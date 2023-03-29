@@ -1,26 +1,45 @@
 require 'date'
 
 class Item
-  attr_accessor :id, :genre, :author, :source, :label, :publish_date, :archived
+  attr_reader :id, :genre, :author, :label, :publish_date, :archived
 
-  # Use a hash for the parameter
-  # Example: hash = {id => 1, genre> "Science", author> "Asif", source> "https://www.google.com", label=> "Science", publish_date=> "2020-01-01", archived=> false}
-
-  def initialize(hash)
-    @id = hash[:id]
-    @genre = hash[:genre]
-    @author = hash[:author]
-    @source = hash[:source]
-    @label = hash[:label]
-    @publish_date = hash[:publish_date]
-    @archived = hash[:archived]
+  def initialize(id = Random.rand(1..100))
+    @id = id
+    @genre = nil
+    @author = nil
+    @label = nil
+    @publish_date = nil
+    @archived = false
   end
 
-  def can_be_archived?
-    (Time.now.year - @publish_date.year) > 10
+  def add_label(label)
+    label.is_a?(Label) && @label.nil? && (
+      @label = label
+      label.add_item(self)
+    )
+  end
+
+  def add_genre(genre)
+    genre.is_a?(Genre) && @genre.nil? && (
+      @genre = genre
+      genre.add_item(self)
+    )
+  end
+
+  def add_author(author)
+    author.is_a?(Author) && @author.nil? && (
+      @author = author
+      author.add_item(self)
+    )
   end
 
   def move_to_archive
-    @archived = can_be_archived?
+    @archived = true if can_be_archived?
+  end
+
+  private
+
+  def can_be_archived?
+    (Date.today.year - Date.parse(@publish_date).year) > 10
   end
 end
