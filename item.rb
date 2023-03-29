@@ -7,13 +7,18 @@ class Item
   # Example: hash = {id => 1, genre> "Science", author> "Asif", source> "https://www.google.com", label=> "Science", publish_date=> "2020-01-01", archived=> false}
 
   def initialize(hash)
-    @id = hash[:id]
-    @genre = hash[:genre]
-    @author = hash[:author]
-    @source = hash[:source]
-    @label = hash[:label]
-    @publish_date = hash[:publish_date]
-    @archived = hash[:archived]
+    # create a random id using time
+    @id = hash['id'] || Time.now.to_i
+    @genre = hash['genre']
+    @author = hash['author']
+    @source = hash['source']
+    @label = hash['label']
+    @publish_date = hash['publish_date']
+    @archived = hash['archived']
+  end
+
+  def add_genre(genre)
+    @genre = genre
   end
 
   def can_be_archived?
