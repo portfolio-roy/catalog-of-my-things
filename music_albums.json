@@ -1,49 +1,17 @@
 [
   {
-    "id": 1680100104,
+    "id": 1680146905,
     "genre": {
-      "id": 1680100104,
-      "name": "Hip Hop",
+      "id": 1680146853,
+      "name": "Pop",
       "items": [
 
       ]
     },
-    "author": "Asif",
-    "source": "https://www.google.com",
-    "label": "Science",
-    "publish_date": "2020-01-01",
-    "archived": false,
-    "on_spotify": false
-  },
-  {
-    "id": 1680100104,
-    "genre": {
-      "id": 1680100104,
-      "name": "Rock",
-      "items": [
-
-      ]
-    },
-    "author": "john Doe",
-    "source": "https://www.google.com",
-    "label": "Science",
-    "publish_date": "2020-01-01",
-    "archived": false,
-    "on_spotify": true
-  },
-  {
-    "id": 1680100104,
-    "genre": {
-      "id": 1680100104,
-      "name": "Hip Hop",
-      "items": [
-
-      ]
-    },
-    "author": "Asif",
-    "source": "https://www.google.com",
-    "label": "Science",
-    "publish_date": "2020-01-01",
+    "author": "Jane Doe",
+    "source": "web",
+    "label": "Pop",
+    "publish_date": "2022-08-10",
     "archived": false,
     "on_spotify": true
   }

@@ -1,6 +1,8 @@
 require './music_album'
 require './music_data'
 require './genre'
+require './book'
+require './book_data'
 
 class Main
   def display_menu
@@ -22,8 +24,15 @@ class Main
 
   def init_hash
     {
+      1 => proc {
+             puts BookData.load
+           },
       2 => proc {
              puts MusicAlbumData.load
+           },
+      9 => proc {
+             BookData.add_book(Book.create_from_ui)
+             puts 'Book added'
            },
       10 => proc {
               MusicAlbumData.add_music_album(MusicAlbum.create_from_ui)
