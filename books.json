@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1680146799,
+    "genre": {
+      "id": 1680146747,
+      "name": "Nature",
+      "items": [
+
+      ]
+    },
+    "author": "John Doe",
+    "source": "Web",
+    "label": "Nature",
+    "publish_date": "2017-05-20",
+    "archived": false,
+    "publisher": "Penguine",
+    "cover_state": "bad"
+  }
+]

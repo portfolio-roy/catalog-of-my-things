@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1680146905,
+    "genre": {
+      "id": 1680146853,
+      "name": "Pop",
+      "items": [
+
+      ]
+    },
+    "author": "Jane Doe",
+    "source": "web",
+    "label": "Pop",
+    "publish_date": "2022-08-10",
+    "archived": false,
+    "on_spotify": true
+  }
+]
