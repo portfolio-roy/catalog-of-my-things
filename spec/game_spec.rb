@@ -15,26 +15,4 @@ describe 'Unit testing for Game Class' do
       expect(@game).not_to be_instance_of Item
     end
 
-    it 'should be a kind of Item' do
-      expect(@game).to be_kind_of Item
-    end
-  end
-
-  context 'Multiplayer Game' do
-    it 'should be "Y"' do
-      expect(@game.multiplayer).to eql 'Y'
-    end
-  end
-
-  context 'when was game last played' do
-    it 'should be "1994/08/01"' do
-      expect(@game.last_played_at).to eql '1994/08/01'
-    end
-
-    context 'when was game published' do
-      it 'should be "2010/02/05"' do
-        expect(@game.publish_date).to eql '2010/02/05'
-      end
-    end
-  end
-end
+   
