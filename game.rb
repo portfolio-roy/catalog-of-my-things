@@ -75,4 +75,5 @@ class Game < Item
                 else
                   false
                 end
-  
+  end
+end
