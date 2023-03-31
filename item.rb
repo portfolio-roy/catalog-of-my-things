@@ -8,7 +8,7 @@ class Item
 
   def initialize(hash)
     # create a random id using time
-    @id = hash['id'] || Time.now.to_i
+    @id = Time.now.to_i
     @genre = hash['genre']
     @author = hash['author']
     @source = hash['source']

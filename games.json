@@ -1,20 +1,20 @@
 [
   {
-    "id": 1680246990,
+    "id": 1680275931,
     "genre": {
-      "id": 1680246912,
-      "name": "racing",
+      "id": 1680275814,
+      "name": "race",
       "items": [
 
       ]
     },
-    "author": "john doe",
+    "author": "john",
     "source": "web",
-    "label": "game-1",
-    "publish_date": "2022-02-02",
+    "label": "race",
+    "publish_date": "2021-01-01",
     "archived": false,
     "publisher": null,
     "multiplayer": true,
-    "last_played_at": "2023-03-03"
+    "last_played_at": "2023-01-05"
   }
 ]

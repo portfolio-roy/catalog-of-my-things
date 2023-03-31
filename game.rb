@@ -1,5 +1,5 @@
 require_relative './item'
-
+require_relative './get_inputs'
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
   attr_reader :id
@@ -32,39 +32,40 @@ class Game < Item
   end
 
   def self.create_from_ui
-    puts 'Enter the name of the genre'
-    genre_name = gets.chomp
-    genre = Genre.new(genre_name, [])
-    puts 'Enter the name of the author'
-    author = gets.chomp
+    # puts 'Enter the name of the genre'
+    # genre_name = gets.chomp
+    # genre = Genre.new(genre_name, [])
+    # puts 'Enter the name of the author'
+    # author = gets.chomp
 
-    puts 'Enter the source'
-    source = gets.chomp
+    # puts 'Enter the source'
+    # source = gets.chomp
 
-    puts 'Enter the label'
-    label = gets.chomp
+    # puts 'Enter the label'
+    # label = gets.chomp
 
-    puts 'Enter the publish date'
-    publish_date = gets.chomp
+    # puts 'Enter the publish date'
+    # publish_date = gets.chomp
 
-    puts 'Enter the archived status'
-    archived = gets.chomp == 'true'
+    # puts 'Enter the archived status'
+    # archived = gets.chomp == 'true'
 
-    puts 'Enter the publisher'
-    publisher = gets.chomp
+    # puts 'Enter the publisher'
+    # publisher = gets.chomp
 
-    puts 'Enter the multiplayer status'
-    multiplayer = gets.chomp == 'true'
+    # puts 'Enter the multiplayer status'
+    # multiplayer = gets.chomp == 'true'
 
-    puts 'Enter the last played date'
-    last_played_at = gets.chomp
+    # puts 'Enter the last played date'
+    # last_played_at = gets.chomp
 
-    dictionary = { 'genre' => genre, 'author' => author, 'source' => source,
-                   'label' => label,
-                   'publish_date' => publish_date,
-                   'archived' => archived }
+    # dictionary = { 'genre' => genre, 'author' => author, 'source' => source,
+    #                'label' => label,
+    #                'publish_date' => publish_date,
+    #                'archived' => archived }
 
-    Game.new(multiplayer, last_played_at, dictionary)
+    # Game.new(multiplayer, last_played_at, dictionary)
+    get_inputs('game')
   end
 
   private
