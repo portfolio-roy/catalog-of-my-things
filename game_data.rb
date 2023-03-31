@@ -24,9 +24,4 @@ class GameData
       last_played_at = hash['last_played_at']
       hash.delete('multiplayer')
       hash.delete('last_played_at')
-      Game.new(multiplayer, last_played_at, hash)
-    end
-
-    @games
-  end
-end
+ 
