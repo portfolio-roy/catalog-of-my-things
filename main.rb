@@ -3,23 +3,23 @@ require './music_data'
 require './genre'
 require './book'
 require './book_data'
+require './game'
+require './game_data'
 
 class Main
   def display_menu
     puts 'Please choose an option to enter in a number'
     puts '1. List all books'
     puts '2. List all music albums'
-    puts '3. List all movies'
-    puts '4. List of games'
+    puts '3. List of games'
     puts '5. List all genres (e.g. "Hip Hop", "Rock")'
     puts '6. List all labels (e.g. "Gift", "New")'
     puts '7. List all authors (e.g. "Stephen King", "J.K. Rowling")'
     puts '8. List all sources (e.g. "From a friend", "Amazon")'
     puts '9. Add a book'
     puts '10. Add a music album'
-    puts '11. Add a movie'
-    puts '12. Add a game'
-    puts '13. Exit'
+    puts '11. Add a game'
+    puts '12. Exit'
   end
 
   def init_hash
@@ -30,6 +30,9 @@ class Main
       2 => proc {
              puts MusicAlbumData.load
            },
+      3 => proc {
+              puts GameData.load 
+            },
       9 => proc {
              BookData.add_book(Book.create_from_ui)
              puts 'Book added'
@@ -38,7 +41,11 @@ class Main
               MusicAlbumData.add_music_album(MusicAlbum.create_from_ui)
               puts 'Music album added'
             },
-      13 => proc {
+      11 => proc {
+              GameData.add_game(Game.create_from_ui)
+              puts 'Game added'
+            },
+      12 => proc {
         puts 'Thank you for using this app!'
         exit
       }
