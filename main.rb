@@ -48,17 +48,17 @@ class Main
     Book.list_authors
   end
 
-  def add_book
+  def add_book_item
     ItemData.add_item('book', Book.create_from_ui)
     puts 'Book added'
   end
 
-  def add_music_album
+  def add_music_album_item
     ItemData.add_item('music_album', MusicAlbum.create_from_ui)
     puts 'Music album added'
   end
 
-  def add_game
+  def add_game_item
     ItemData.add_item('game', Game.create_from_ui)
     puts 'Game added'
   end
