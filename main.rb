@@ -23,33 +23,47 @@ class Main
     puts '12. Exit'
   end
 
+  def load_book
+    puts ItemData.load('book')
+  end
+
+  def load_music_album
+    puts ItemData.load('music_album')
+  end
+
+  def load_game
+    puts ItemData.load('game')
+  end
+
+  def add_book
+    ItemData.add_item('book', Book.create_from_ui)
+    puts 'Book added'
+  end
+
+  def add_music_album
+    ItemData.add_item('music_album', MusicAlbum.create_from_ui)
+    puts 'Music album added'
+  end
+
+  def add_game
+    ItemData.add_item('game', Game.create_from_ui)
+    puts 'Game added'
+  end
+
+  def exit_app
+    puts 'Thank you for using this app!'
+    exit
+  end
+
   def init_hash
     {
-      1 => proc {
-             puts ItemData.load('book')
-           },
-      2 => proc {
-             puts ItemData.load('music_album')
-           },
-      3 => proc {
-              puts ItemData.load('game')
-            },
-      9 => proc {
-             ItemData.add_item('book', Book.create_from_ui)
-             puts 'Book added'
-           },
-      10 => proc {
-              ItemData.add_item('music_album', MusicAlbum.create_from_ui)
-              puts 'Music album added'
-            },
-      11 => proc {
-              ItemData.add_item('game', Game.create_from_ui)
-              puts 'Game added'
-            },
-      12 => proc {
-        puts 'Thank you for using this app!'
-        exit
-      }
+      1 => method(:load_book),
+      2 => method(:load_music_album),
+      3 => method(:load_game),
+      9 => method(:add_book),
+      10 => method(:add_music_album),
+      11 => method(:add_game),
+      12 => method(:exit_app)
     }
   end
 

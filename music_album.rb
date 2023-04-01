@@ -33,5 +33,4 @@ class MusicAlbum < Item
   def can_be_archived?
     super || @on_spotify ? true : false
   end
-
 end
