@@ -32,16 +32,16 @@ class Book < Item
     get_inputs('book')
   end
 
-  def list_authors
-    if @author_list.empty?
-      puts 'Author list is empty'
+  def self.list_authors
+    authors = ItemData.load('book').map(&:author).uniq
+
+    if authors.empty?
+      puts 'There are no genres to list'
     else
-      @author_list.each_with_index do |author, index|
-        puts "(#{index}) ID: #{author.id}"
-        puts "Author First Name: #{author.first_name}"
-        puts "Author Last Name: \"#{author.last_name}"
-      end
+      authors.each { |author| puts author }
     end
+
+    nil
   end
 
   private

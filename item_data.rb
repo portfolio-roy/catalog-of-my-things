@@ -21,10 +21,11 @@ class ItemData
   end
 
   def self.store(item_type)
-    if item_type == 'book'
+    case item_type
+    when 'book'
       json = JSON.pretty_generate(@books.map(&:to_json))
       File.write('books.json', json)
-    elsif item_type == 'game'
+    when 'game'
       json = JSON.pretty_generate(@games.map(&:to_json))
       File.write('games.json', json)
     else

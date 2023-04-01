@@ -33,4 +33,16 @@ class MusicAlbum < Item
   def can_be_archived?
     super || @on_spotify ? true : false
   end
+
+  def self.list_genres
+    albums = ItemData.load('music_album')
+
+    if (genres = albums.map(&:genre).uniq).empty?
+      puts 'There are no genres to list'
+    else
+      genres.each { |genre| puts genre }
+    end
+
+    nil
+  end
 end
