@@ -149,8 +149,6 @@ run tests with the command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Below are some interesting features coming up.
-
 - [ ] **We would add the functionality to store and retrieve your favourite movies**
 - [ ] **A web dashboard would be available for your use**
 
