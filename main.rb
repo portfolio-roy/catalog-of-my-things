@@ -31,8 +31,8 @@ class Main
              puts MusicAlbumData.load
            },
       3 => proc {
-              puts GameData.load 
-            },
+             puts GameData.load
+           },
       9 => proc {
              BookData.add_book(Book.create_from_ui)
              puts 'Book added'
