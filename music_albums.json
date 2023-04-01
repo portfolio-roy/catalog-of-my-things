@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1680373621,
+    "genre": {
+      "id": 1680373557,
+      "name": "folk",
+      "items": [
+
+      ]
+    },
+    "author": "Dylan",
+    "source": "spotify",
+    "label": "fav",
+    "publish_date": "1967-01-01",
+    "archived": false,
+    "on_spotify": true
+  }
+]

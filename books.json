@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1680373534,
+    "genre": {
+      "id": 1680373503,
+      "name": "story",
+      "items": [
+
+      ]
+    },
+    "author": "john",
+    "source": "web",
+    "label": "new",
+    "publish_date": "2023-03-03",
+    "archived": false,
+    "publisher": "Penguin",
+    "cover_state": "good"
+  }
+]
