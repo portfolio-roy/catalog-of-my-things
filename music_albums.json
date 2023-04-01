@@ -1,18 +1,18 @@
 [
   {
-    "id": 1680341344,
+    "id": 1680362694,
     "genre": {
-      "id": 1680341321,
-      "name": "pop",
+      "id": 1680362672,
+      "name": "Hip Hop",
       "items": [
 
       ]
     },
-    "author": "jane",
-    "source": "web",
-    "label": "new",
-    "publish_date": "2020-02-02",
-    "archived": "",
-    "on_spotify": "true"
+    "author": "Mikes ",
+    "source": "A",
+    "label": "AAA",
+    "publish_date": "2002-01-01",
+    "archived": false,
+    "on_spotify": false
   }
 ]

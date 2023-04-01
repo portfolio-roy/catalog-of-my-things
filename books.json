@@ -1,19 +1,19 @@
 [
   {
-    "id": 1680338973,
+    "id": 1680356129,
     "genre": {
-      "id": 1680338950,
-      "name": "nature",
+      "id": 1680356090,
+      "name": "story",
       "items": [
 
       ]
     },
     "author": "john",
     "source": "web",
-    "label": "new",
-    "publish_date": "2020-02-02",
-    "archived": "",
-    "publisher": "penguine",
+    "label": "gift",
+    "publish_date": "2022-03-03",
+    "archived": false,
+    "publisher": "unknown",
     "cover_state": "good"
   }
 ]

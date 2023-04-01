@@ -1,4 +1,5 @@
 require './item'
+require './get_inputs'
 
 class MusicAlbum < Item
   attr_accessor :on_spotify
@@ -25,50 +26,23 @@ class MusicAlbum < Item
     "MusicAlbum: #{@id} - #{@label} - By #{@author} - #{@genre.name}"
   end
 
-  # def self.create_from_ui
-  #   puts 'Enter the name of the genre'
-  #   genre_name = gets.chomp
-  #   genre = Genre.new(genre_name, [])
-  #   puts 'Enter the name of the author'
-  #   author = gets.chomp
-
-  #   puts 'Enter the source'
-  #   source = gets.chomp
-
-  #   puts 'Enter the label'
-  #   label = gets.chomp
-
-  #   puts 'Enter the publish date'
-  #   publish_date = gets.chomp
-
-  #   puts 'Enter the archived status'
-  #   archived = gets.chomp == 'true'
-
-  #   puts 'Enter the spotify status'
-  #   on_spotify = gets.chomp == 'true'
-
-  #   dictionary = { 'genre' => genre, 'author' => author, 'source' => source,
-  #                  'label' => label, 'publish_date' => Date.parse(publish_date), 'archived' => archived }
-
-  #   MusicAlbum.new(dictionary, on_spotify)
-  # end
-
   def self.create_from_ui
-    puts 'Enter the name of the genre'
-    genre_name = gets.chomp
-    genre = Genre.new(genre_name, [])
+    get_inputs('music')
+  end
 
-    dictionary = {
-      'genre' => genre,
-      'author' => get_input('author'),
-      'source' => get_input('source'),
-      'label' => get_input('label'),
-      'publish_date' => get_input('publish date'),
-      'archived' => get_bool_input('archived')
-    }
-    on_spotify = get_bool_input('on spotify')
+  def can_be_archived?
+    super || @on_spotify ? true : false
+  end
 
-    MusicAlbum.new(dictionary, on_spotify)
+  def self.list_genres
+    albums = ItemData.load('music_album')
+
+    if (genres = albums.map(&:genre).uniq).empty?
+      puts 'There are no genres to list'
+    else
+      genres.each { |genre| puts genre }
+    end
+    nil
   end
 
   def self.get_input(prompt)

@@ -20,4 +20,8 @@ class Genre
       items: @items
     }
   end
+
+  def to_s
+    "Genre: #{@id} - #{@name}"
+  end
 end

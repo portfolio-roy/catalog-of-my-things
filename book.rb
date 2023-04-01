@@ -1,5 +1,5 @@
 require_relative 'item'
-
+require_relative './get_inputs'
 class Book < Item
   attr_accessor :publisher, :cover_state
   attr_reader :id
@@ -29,32 +29,19 @@ class Book < Item
   end
 
   def self.create_from_ui
-    puts 'Enter the name of the genre'
-    genre_name = gets.chomp
-    genre = Genre.new(genre_name, [])
-
-    dictionary = {
-      'genre' => genre,
-      'author' => get_input('author'),
-      'source' => get_input('source'),
-      'label' => get_input('label'),
-      'publish_date' => get_input('publish date'),
-      'archived' => get_bool_input('archived')
-    }
-    publisher = get_input('publisher')
-    cover_state = get_input('cover state')
-
-    Book.new(publisher, cover_state, dictionary)
+    get_inputs('book')
   end
 
-  def self.get_input(prompt)
-    puts "Enter the #{prompt}"
-    gets.chomp
-  end
+  def self.list_authors
+    authors = ItemData.load('book').map(&:author).uniq
 
-  def self.get_bool_input(prompt)
-    puts "Enter the #{prompt} (true/false)"
-    gets.chomp
+    if authors.empty?
+      puts 'There are no genres to list'
+    else
+      authors.each { |author| puts author }
+    end
+
+    nil
   end
 
   private
