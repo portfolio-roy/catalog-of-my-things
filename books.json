@@ -1,8 +1,8 @@
 [
   {
-    "id": 1680356129,
+    "id": 1680373534,
     "genre": {
-      "id": 1680356090,
+      "id": 1680373503,
       "name": "story",
       "items": [
 
@@ -10,10 +10,10 @@
     },
     "author": "john",
     "source": "web",
-    "label": "gift",
-    "publish_date": "2022-03-03",
+    "label": "new",
+    "publish_date": "2023-03-03",
     "archived": false,
-    "publisher": "unknown",
+    "publisher": "Penguin",
     "cover_state": "good"
   }
 ]
