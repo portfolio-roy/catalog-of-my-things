@@ -5,6 +5,7 @@ require './book'
 require './book_data'
 require './game'
 require './game_data'
+require './item_data'
 
 class Main
   def display_menu
@@ -25,24 +26,24 @@ class Main
   def init_hash
     {
       1 => proc {
-             puts BookData.load
+             puts ItemData.load('book')
            },
       2 => proc {
-             puts MusicAlbumData.load
+             puts ItemData.load('music_album')
            },
       3 => proc {
-              puts GameData.load 
+              puts ItemData.load('game')
             },
       9 => proc {
-             BookData.add_book(Book.create_from_ui)
+             ItemData.add_item('book', Book.create_from_ui)
              puts 'Book added'
            },
       10 => proc {
-              MusicAlbumData.add_music_album(MusicAlbum.create_from_ui)
+              ItemData.add_item('music_album', MusicAlbum.create_from_ui)
               puts 'Music album added'
             },
       11 => proc {
-              GameData.add_game(Game.create_from_ui)
+              ItemData.add_item('game', Game.create_from_ui)
               puts 'Game added'
             },
       12 => proc {

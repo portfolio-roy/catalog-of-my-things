@@ -1,7 +1,8 @@
+require './get_genre'
 def get_inputs(item_type)
     puts 'Enter the name of the genre'
     genre_name = gets.chomp
-    genre = Genre.new(genre_name, [])
+    genre = get_genre(genre_name)
     puts 'Enter the name of the author'
     author = gets.chomp
 

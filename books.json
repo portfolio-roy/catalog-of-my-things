@@ -1,19 +1,19 @@
 [
   {
-    "id": 1680257583,
+    "id": 1680331215,
     "genre": {
-      "id": 1680257553,
+      "id": 1680331136,
       "name": "story",
       "items": [
 
       ]
     },
-    "author": "John",
+    "author": "john",
     "source": "web",
-    "label": "label",
-    "publish_date": "2023-02-20",
+    "label": "new",
+    "publish_date": "2020-02-02",
     "archived": false,
-    "publisher": "Penguine",
+    "publisher": "penguine",
     "cover_state": "good"
   }
 ]
