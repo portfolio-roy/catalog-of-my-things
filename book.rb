@@ -32,43 +32,29 @@ class Book < Item
     puts 'Enter the name of the genre'
     genre_name = gets.chomp
     genre = Genre.new(genre_name, [])
-    puts 'Enter the name of the author'
-    author = gets.chomp
 
-    puts 'Enter the source'
-    source = gets.chomp
-
-    puts 'Enter the label'
-    label = gets.chomp
-
-    puts 'Enter the publish date'
-    publish_date = gets.chomp
-
-    puts 'Enter the archived status'
-    archived = gets.chomp == 'true'
-
-    puts 'Enter the publisher'
-    publisher = gets.chomp
-
-    puts 'Enter the cover state'
-    cover_state = gets.chomp
-
-    dictionary = { 'genre' => genre, 'author' => author, 'source' => source,
-                   'label' => label, 'publish_date' => Date.parse(publish_date), 'archived' => archived }
+    dictionary = {
+      'genre' => genre,
+      'author' => get_input('author'),
+      'source' => get_input('source'),
+      'label' => get_input('label'),
+      'publish_date' => get_input('publish date'),
+      'archived' => get_bool_input('archived')
+    }
+    publisher = get_input('publisher')
+    cover_state = get_input('cover state')
 
     Book.new(publisher, cover_state, dictionary)
   end
 
-  def list_authors
-    if @author_list.empty?
-      puts 'Author list is empty'
-    else
-      @author_list.each_with_index do |author, index|
-        puts "(#{index}) ID: #{author.id}"
-        puts "Author First Name: #{author.first_name}"
-        puts "Author Last Name: \"#{author.last_name}"
-      end
-    end
+  def self.get_input(prompt)
+    puts "Enter the #{prompt}"
+    gets.chomp
+  end
+
+  def self.get_bool_input(prompt)
+    puts "Enter the #{prompt} (true/false)"
+    gets.chomp
   end
 
   private

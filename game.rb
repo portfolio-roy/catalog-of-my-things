@@ -35,36 +35,30 @@ class Game < Item
     puts 'Enter the name of the genre'
     genre_name = gets.chomp
     genre = Genre.new(genre_name, [])
-    puts 'Enter the name of the author'
-    author = gets.chomp
 
-    puts 'Enter the source'
-    source = gets.chomp
-
-    puts 'Enter the label'
-    label = gets.chomp
-
-    puts 'Enter the publish date'
-    publish_date = gets.chomp
-
-    puts 'Enter the archived status'
-    archived = gets.chomp == 'true'
-
-    puts 'Enter the publisher'
-    publisher = gets.chomp
-
-    puts 'Enter the multiplayer status'
-    multiplayer = gets.chomp == 'true'
-
-    puts 'Enter the last played date'
-    last_played_at = gets.chomp
-
-    dictionary = { 'genre' => genre, 'author' => author, 'source' => source,
-                   'label' => label,
-                   'publish_date' => publish_date,
-                   'archived' => archived }
+    dictionary = {
+      'genre' => genre,
+      'author' => get_input('author'),
+      'source' => get_input('source'),
+      'label' => get_input('label'),
+      'publish_date' => get_input('publish date'),
+      'archived' => get_bool_input('archived'),
+      'publisher' => get_input('publisher')
+    }
+    multiplayer = get_bool_input('multiplayer')
+    last_played_at = get_input('last played date')
 
     Game.new(multiplayer, last_played_at, dictionary)
+  end
+
+  def self.get_input(prompt)
+    puts "Enter the #{prompt}"
+    gets.chomp
+  end
+
+  def self.get_bool_input(prompt)
+    puts "Enter the #{prompt} (true/false)"
+    gets.chomp == 'true'
   end
 
   private
