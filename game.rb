@@ -1,13 +1,14 @@
-require_relative 'item'
+require_relative './item'
 
-class Book < Item
-  attr_accessor :publisher, :cover_state
+class Game < Item
+  attr_accessor :multiplayer, :last_played_at
   attr_reader :id
 
-  def initialize(publisher, cover_state, dictionary)
+  def initialize(multiplayer, last_played_at, dictionary)
     super(dictionary)
-    @publisher = publisher
-    @cover_state = cover_state
+    @multiplayer = multiplayer
+    @last_played_at = last_played_at
+    @archived = can_be_archived?
   end
 
   def to_json(*_args)
@@ -20,12 +21,14 @@ class Book < Item
       publish_date: @publish_date,
       archived: @archived,
       publisher: @publisher,
-      cover_state: @cover_state
+      multiplayer: @multiplayer,
+      last_played_at: @last_played_at
+
     }
   end
 
   def to_s
-    "Book: #{@id} - #{@label} - By #{@author} - #{@genre.name}"
+    "Game: #{@id} - #{@label} - By #{@author} - #{@genre.name}"
   end
 
   def self.create_from_ui
@@ -39,12 +42,13 @@ class Book < Item
       'source' => get_input('source'),
       'label' => get_input('label'),
       'publish_date' => get_input('publish date'),
-      'archived' => get_bool_input('archived')
+      'archived' => get_bool_input('archived'),
+      'publisher' => get_input('publisher')
     }
-    publisher = get_input('publisher')
-    cover_state = get_input('cover state')
+    multiplayer = get_bool_input('multiplayer')
+    last_played_at = get_input('last played date')
 
-    Book.new(publisher, cover_state, dictionary)
+    Game.new(multiplayer, last_played_at, dictionary)
   end
 
   def self.get_input(prompt)
@@ -54,13 +58,13 @@ class Book < Item
 
   def self.get_bool_input(prompt)
     puts "Enter the #{prompt} (true/false)"
-    gets.chomp
+    gets.chomp == 'true'
   end
 
   private
 
   def can_be_archived?
-    @archived = if super or @cover_state == 'bad'
+    @archived = if super || Date.today - Date.parse(@last_played_at) > 365 * 2
                   true
                 else
                   false
