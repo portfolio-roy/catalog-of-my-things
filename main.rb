@@ -68,6 +68,36 @@ class Main
     exit
   end
 
+  # Method to load data
+  def load_data(data)
+    puts data.load
+  end
+
+  # Method to add a book
+  def add_book
+    BookData.add_book(Book.create_from_ui)
+    puts 'Book added'
+  end
+
+  # Method to add a music album
+  def add_music_album
+    MusicAlbumData.add_music_album(MusicAlbum.create_from_ui)
+    puts 'Music album added'
+  end
+
+  # Method to add a game
+  def add_game
+    GameData.add_game(Game.create_from_ui)
+    puts 'Game added'
+  end
+
+  # Method to exit the program
+  def exit_program
+    puts 'Thank you for using this app!'
+    exit
+  end
+
+  # Method to initialize the hash
   def init_hash
     {
       1 => method(:load_book),
