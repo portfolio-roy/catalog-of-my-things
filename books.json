@@ -1,19 +1,19 @@
 [
   {
-    "id": 1680146799,
+    "id": 1680338973,
     "genre": {
-      "id": 1680146747,
-      "name": "Nature",
+      "id": 1680338950,
+      "name": "nature",
       "items": [
 
       ]
     },
-    "author": "John Doe",
-    "source": "Web",
-    "label": "Nature",
-    "publish_date": "2017-05-20",
-    "archived": false,
-    "publisher": "Penguine",
-    "cover_state": "bad"
+    "author": "john",
+    "source": "web",
+    "label": "new",
+    "publish_date": "2020-02-02",
+    "archived": "",
+    "publisher": "penguine",
+    "cover_state": "good"
   }
 ]
