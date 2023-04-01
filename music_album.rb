@@ -42,7 +42,16 @@ class MusicAlbum < Item
     else
       genres.each { |genre| puts genre }
     end
-
     nil
+  end
+
+  def self.get_input(prompt)
+    puts "Enter the #{prompt}"
+    gets.chomp
+  end
+
+  def self.get_bool_input(prompt)
+    puts "Enter the #{prompt} (true/false)"
+    gets.chomp
   end
 end
