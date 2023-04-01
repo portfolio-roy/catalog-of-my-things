@@ -39,18 +39,20 @@ end
 
 def get_inputs(item_type)
   genre, author, source, label, publish_date, archived = common_inputs
-  if item_type == 'book'
+  case item_type
+  when 'book'
     publisher, cover_state = book_inputs
-  elsif item_type == 'music'
+  when 'music'
     on_spotify = music_album_inputs
   else
     multiplayer, last_played_at = game_inputs
   end
   dictionary = { 'genre' => genre, 'author' => author, 'source' => source,
                  'label' => label, 'publish_date' => publish_date, 'archived' => archived }
-  if item_type == 'book'
+  case item_type
+  when 'book'
     Book.new(publisher, cover_state, dictionary)
-  elsif item_type == 'music'
+  when 'music'
     MusicAlbum.new(dictionary, on_spotify)
   else
     Game.new(multiplayer, last_played_at, dictionary)

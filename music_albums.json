@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id": 1680362694,
+    "genre": {
+      "id": 1680362672,
+      "name": "Hip Hop",
+      "items": [
+
+      ]
+    },
+    "author": "Mikes ",
+    "source": "A",
+    "label": "AAA",
+    "publish_date": "2002-01-01",
+    "archived": false,
+    "on_spotify": false
+  }
+]

@@ -28,4 +28,32 @@ class Item
   def move_to_archive
     @archived = can_be_archived?
   end
+
+  def self.list_labels
+    labels = ItemData.load('game').map(&:label).uniq
+    labels << ItemData.load('music_album').map(&:label).uniq
+    labels << ItemData.load('book').map(&:label).uniq
+
+    if labels.empty?
+      puts 'There are no labels to list'
+    else
+      labels.each { |label| puts label }
+    end
+
+    nil
+  end
+
+  def self.list_sources
+    sources = ItemData.load('book').map(&:source).uniq
+    sources << ItemData.load('music_album').map(&:source).uniq
+    sources << ItemData.load('game').map(&:source).uniq
+
+    if sources.empty?
+      puts 'There are no sources to list'
+    else
+      sources.each { |source| puts source }
+    end
+
+    nil
+  end
 end
