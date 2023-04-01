@@ -33,52 +33,20 @@ class ItemData
     end
   end
 
-  def load_books
-    json = File.read('books.json')
-    @books = JSON.parse(json).map do |hash|
-      genre = Genre.new(hash['genre']['name'], hash['genre']['items'], id: hash['genre']['id'])
-      hash['genre'] = genre
-      cover_state = hash['cover_state']
-      publisher = hash['publisher']
-      hash.delete('archived')
-      Book.new(publisher, cover_state, hash)
-    end
-    @books
-  end
-
-  def load_games
-    json = File.read('games.json')
-    @games = JSON.parse(json).map do |hash|
-      genre = Genre.new(hash['genre']['name'], hash['genre']['items'], id: hash['genre']['id'])
-      hash['genre'] = genre
-      multiplayer = hash['multiplayer']
-      last_played_at = hash['last_played_at']
-      hash.delete('multiplayer')
-      hash.delete('last_played_at')
-      Game.new(multiplayer, last_played_at, hash)
-    end
-    @games
-  end
-
-  def load_music_albums
-    json = File.read('music_albums.json')
-    @music_albums = JSON.parse(json).map do |hash|
-      genre = Genre.new(hash['genre']['name'], hash['genre']['items'], id: hash['genre']['id'])
-      hash['genre'] = genre
-      on_spotify = hash['on_spotify']
-      hash.delete('on_spotify')
-      MusicAlbum.new(hash, on_spotify)
-    end
-    @music_albums
-  end
-
   def self.load(item_type)
-    if item_type == 'book'
-      load_books
-    elsif item_type == 'game'
-      load_games
-    else
-      load_music_albums
-    end
+    filename = "#{item_type}s.json"
+    json = File.read(filename)
+    instance_variable_set("@#{item_type}s", JSON.parse(json).map do |hash|
+      genre = Genre.new(hash['genre']['name'], hash['genre']['items'], id: hash['genre']['id'])
+      hash['genre'] = genre
+      case item_type
+      when 'book'
+        Book.new(hash.delete('publisher'), hash.delete('cover_state'), hash)
+      when 'game'
+        Game.new(hash.delete('multiplayer'), hash.delete('last_played_at'), hash)
+      else
+        MusicAlbum.new(hash, hash.delete('on_spotify'))
+      end
+    end)
   end
 end
